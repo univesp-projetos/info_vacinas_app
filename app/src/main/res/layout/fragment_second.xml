@@ -31,21 +31,7 @@
         android:layout_height="49dp"
         android:text="Buscar por Localização"
         tools:layout_editor_absoluteX="71dp"
-        tools:layout_editor_absoluteY="210dp" />
+        tools:layout_editor_absoluteY="210dp"
+        tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/latitude"
-        android:layout_width="285dp"
-        android:layout_height="29dp"
-        android:text="Latitude"
-        tools:layout_editor_absoluteX="69dp"
-        tools:layout_editor_absoluteY="282dp" />
-
-    <TextView
-        android:id="@+id/longitude"
-        android:layout_width="285dp"
-        android:layout_height="29dp"
-        android:text="Longitude"
-        tools:layout_editor_absoluteX="69dp"
-        tools:layout_editor_absoluteY="325dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

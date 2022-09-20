@@ -37,4 +37,22 @@
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/icone_vacina_2" />
 
+    <TextView
+        android:id="@+id/latTextView"
+        android:layout_width="285dp"
+        android:layout_height="29dp"
+        android:text="Latitude"
+        tools:layout_editor_absoluteX="69dp"
+        tools:layout_editor_absoluteY="282dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/lonTextView"
+        android:layout_width="285dp"
+        android:layout_height="29dp"
+        android:text="Longitude"
+        tools:layout_editor_absoluteX="69dp"
+        tools:layout_editor_absoluteY="325dp"
+        tools:ignore="MissingConstraints" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
