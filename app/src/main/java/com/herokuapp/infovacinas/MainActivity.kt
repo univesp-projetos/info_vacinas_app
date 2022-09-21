@@ -63,8 +63,8 @@ class MainActivity : AppCompatActivity() {
                     if (location == null) {
                         requestNewLocationData()
                     } else {
-                        findViewById<TextView>(R.id.latTextView).text = location.latitude.toString()
-                        findViewById<TextView>(R.id.lonTextView).text = location.longitude.toString()
+                        findViewById<TextView>(R.id.latTextView).text = "Latitude: "+location.latitude.toString()
+                        findViewById<TextView>(R.id.lonTextView).text = "Longitude: "+location.longitude.toString()
                     }
                 }
             } else {
