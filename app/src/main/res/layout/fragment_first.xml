@@ -6,50 +6,73 @@
     android:layout_height="match_parent"
     tools:context=".FirstFragment">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="348dp"
+        android:layout_height="107dp"
+        android:layout_marginTop="37dp"
+        android:src="@drawable/icone_vacina_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_first2" />
+
     <TextView
-        android:id="@+id/textview_first"
+        android:id="@+id/textview_first2"
         android:layout_width="175dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="56dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="85dp"
         android:text="Info Vacinas App"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toTopOf="@id/button_first"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/button_consulta_por_cep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:text="Consultar UBS por CEP"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_consulta_pela_localizacao" />
+
+    <Button
+        android:id="@+id/button_consulta_pela_localizacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:text="Consultar UBS pela localização"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lonTextView" />
+
     <TextView
         android:id="@+id/latTextView"
-        android:layout_width="298dp"
-        android:layout_height="23dp"
-        android:layout_marginTop="56dp"
+        android:layout_width="363dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="38dp"
         android:text="Latitude"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/lonTextView"
-        android:layout_width="298dp"
-        android:layout_height="23dp"
-        android:layout_marginTop="76dp"
+        android:layout_width="363dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="37dp"
         android:text="Longitude"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/latTextView"
         tools:ignore="MissingConstraints" />
 
-    <Button
-        android:id="@+id/button_first"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Consultar UBS"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_first" />
 </androidx.constraintlayout.widget.ConstraintLayout>
