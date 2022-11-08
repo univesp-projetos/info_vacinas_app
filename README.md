@@ -8,6 +8,10 @@ Info Vacinas App - Aplicativo de vacinas do site https://info-vacinas.herokuapp.
 <img src="Screenshot_20221108_142850.png" width="350" title="Tela inicial">
 
 ## Tela com formulário da consulta por CEP, após clicar no botão "Consulta UBS pela localização"
+<img src="Screenshot_20221108_201117.png" width="350" title="Tela com formulário da consulta por CEP, após clicar no botão 'Consulta UBS pela localização'">
+
+## Tela com formulário da consulta por CEP, demonstrando que trata-se de um campo numérico, habilitando apenas os números do teclado do aparelho
+<img src="Screenshot_20221108_201130.png" width="350" title="'Tela com formulário da consulta por CEP, demonstrando que trata-se de um campo numérico, habilitando apenas os números do teclado do aparelho'">
 
 ## Resultado da consulta por localização
 
