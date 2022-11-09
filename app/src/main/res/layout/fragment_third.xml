@@ -20,6 +20,16 @@
         tools:layout_editor_absoluteX="64dp" />
 
     <TextView
+        android:id="@+id/urlApiCep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="364dp"
+        android:text="urlApiCep"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="47dp" />
+
+    <TextView
         android:id="@+id/textViewCepDigitado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

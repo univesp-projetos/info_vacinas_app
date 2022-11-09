@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.herokuapp.infovacinas.databinding.FragmentThirdBinding
 
@@ -24,17 +23,22 @@ class ThirdFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
 
         _binding = FragmentThirdBinding.inflate(inflater, container, false)
 
-        // recebe o valor cepDigitado do fragmento anterior
+        // recebe o valor cepDigitado do fragmento anterior via parameter
         var cepDigitado = arguments?.getString("cepDigitado")
         // escreve o CEP recebido no fragmento atual
         binding.textViewCepDigitado.text = cepDigitado
+        // também seta o valor do CEP na variável da MainActivity, se necessário
+        (activity as MainActivity).cep = cepDigitado.toString()
+
+        // monta a url por CEP
+        var urlApi = (activity as MainActivity).urlApiBase.toString().plus("consulta_por_cep?cep=").plus(cepDigitado)
+        binding.urlApiCep.text = urlApi
 
         return binding.root
-
     }
 
     override fun onDestroyView() {

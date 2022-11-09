@@ -30,6 +30,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
     private lateinit var mFusedLocationClient: FusedLocationProviderClient
+    public lateinit var latitude: String
+    public lateinit var longitude: String
+    public lateinit var cep: String
+    public var urlApiBase: String = "https://info-vacinas.herokuapp.com/api/unidades_saude/"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,7 +59,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     @SuppressLint("MissingPermission")
-    private fun getLastLocation() {
+    public fun getLastLocation() {
         if (checkPermissions()) {
             if (isLocationEnabled()) {
 
@@ -66,6 +70,10 @@ class MainActivity : AppCompatActivity() {
                     } else {
                         findViewById<TextView>(R.id.latTextView).text = "Latitude: "+location.latitude.toString()
                         findViewById<TextView>(R.id.lonTextView).text = "Longitude: "+location.longitude.toString()
+
+                        // seta os valores nas variáveis da mainActivity além da tela
+                        this.latitude = location.latitude.toString()
+                        this.longitude = location.longitude.toString()
                     }
                 }
             } else {

@@ -1,12 +1,16 @@
 package com.herokuapp.infovacinas
 
 import android.R
+import android.location.Location
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.location.LocationServices.*
 import com.herokuapp.infovacinas.databinding.FragmentSecondBinding
 
 
@@ -35,13 +39,13 @@ class SecondFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // incluindo um listener para o botão
-        // e enviado o valor do CEP recebido
-        val bundle = Bundle()
-        val cepDigitado = "13140-113"
-        bundle.putString(/* key = */ "cepDigitado", /* value = */ cepDigitado)
-
+        // incluindo uma ação para o botão "Consultar" após digitar o CEP
         binding.buttonConsultaPorCepSubmit.setOnClickListener {
+            // e enviado o valor do CEP digitado
+            val bundle = Bundle()
+            var cepDigitado = "13140-113"
+            cepDigitado = binding.editTextTextPostalAddress.text.toString()
+            bundle.putString(/* key = */ "cepDigitado", /* value = */ cepDigitado)
             findNavController().navigate(
                 com.herokuapp.infovacinas.R.id.action_SecondFragment_to_ThirdFragment,
                 bundle
