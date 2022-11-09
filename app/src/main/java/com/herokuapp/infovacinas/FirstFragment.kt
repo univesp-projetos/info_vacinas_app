@@ -26,18 +26,24 @@ class FirstFragment : Fragment() {
 
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // ação do botão da tela inicial - Para o SecondFragment - consulta por CEP
         binding.buttonConsultaPorCep.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
 
+        // ação do botão da tela inicial - para o FourthFragment -
         binding.buttonConsultaPelaLocalizacao.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+            findNavController().navigate(R.id.action_FirstFragment_to_FourthFragment)
+        }
+
+        // ação do botão da tela inicial - para o FifthFragment - Quem Somos
+        binding.buttonQuemSomos.setOnClickListener {
+            findNavController().navigate(R.id.action_FirstFragment_to_FifthFragment)
         }
     }
 

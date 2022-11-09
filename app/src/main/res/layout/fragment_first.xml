@@ -41,6 +41,16 @@
         app:layout_constraintTop_toBottomOf="@+id/button_consulta_pela_localizacao" />
 
     <Button
+        android:id="@+id/button_quem_somos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="132dp"
+        android:text="Quem Somos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_consulta_pela_localizacao" />
+
+    <Button
         android:id="@+id/button_consulta_pela_localizacao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
