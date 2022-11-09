@@ -68,10 +68,7 @@ class MainActivity : AppCompatActivity() {
                     if (location == null) {
                         requestNewLocationData()
                     } else {
-                        findViewById<TextView>(R.id.latTextView).text = "Latitude: "+location.latitude.toString()
-                        findViewById<TextView>(R.id.lonTextView).text = "Longitude: "+location.longitude.toString()
-
-                        // seta os valores nas variáveis da mainActivity além da tela
+                        // seta os valores nas variáveis da mainActivity
                         this.latitude = location.latitude.toString()
                         this.longitude = location.longitude.toString()
                     }
