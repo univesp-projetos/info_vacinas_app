@@ -50,6 +50,7 @@ class MainActivity : AppCompatActivity() {
 
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
+        // função para incluir a informação de latitude e longitude
         getLastLocation()
     }
 

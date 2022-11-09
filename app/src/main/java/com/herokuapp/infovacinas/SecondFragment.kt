@@ -36,8 +36,16 @@ class SecondFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // incluindo um listener para o botão
+        // e enviado o valor do CEP recebido
+        val bundle = Bundle()
+        val cepDigitado = "13140-113"
+        bundle.putString(/* key = */ "cepDigitado", /* value = */ cepDigitado)
+
         binding.buttonConsultaPorCepSubmit.setOnClickListener {
-            findNavController().navigate(com.herokuapp.infovacinas.R.id.action_SecondFragment_to_ThirdFragment)
+            findNavController().navigate(
+                com.herokuapp.infovacinas.R.id.action_SecondFragment_to_ThirdFragment,
+                bundle
+            )
         }
     }
 

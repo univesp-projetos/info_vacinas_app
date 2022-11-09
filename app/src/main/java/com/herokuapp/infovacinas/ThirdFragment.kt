@@ -1,9 +1,11 @@
 package com.herokuapp.infovacinas
 
+import android.R
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.herokuapp.infovacinas.databinding.FragmentThirdBinding
 
@@ -26,14 +28,12 @@ class ThirdFragment : Fragment() {
 
         _binding = FragmentThirdBinding.inflate(inflater, container, false)
 
+        // recebe o valor cepDigitado do fragmento anterior
+        var cepDigitado = arguments?.getString("cepDigitado")
+        // escreve o CEP recebido no fragmento atual
+        binding.textViewCepDigitado.text = cepDigitado
+
         return binding.root
-
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        // incluindo um evento para o botão
 
     }
 
