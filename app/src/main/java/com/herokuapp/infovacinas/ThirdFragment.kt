@@ -27,50 +27,9 @@ class ThirdFragment : Fragment() {
 
     lateinit var progress:ProgressBar
     lateinit var listView_details: ListView
-    var arrayList_details:ArrayList<Model> = ArrayList();
+    var arrayList_details:ArrayList<ModelUbs> = ArrayList();
     //OkHttpClient creates connection pool between client and server
     val client = OkHttpClient()
-
-    fun run(url: String) {
-        progress.visibility = View.VISIBLE
-        val request = Request.Builder()
-            .url(url)
-            .build()
-
-        client.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {
-                progress.visibility = View.GONE
-            }
-
-            override fun onResponse(call: Call, response: Response) {
-                var str_response = response.body()!!.string()
-                //creating json object
-                val json_contact:JSONObject = JSONObject(str_response)
-                //creating json array
-                var jsonarray_info:JSONArray= json_contact.getJSONArray("info")
-                var i:Int = 0
-                var size:Int = jsonarray_info.length()
-                arrayList_details= ArrayList();
-                for (i in 0.. size-1) {
-                    var json_objectdetail:JSONObject=jsonarray_info.getJSONObject(i)
-                    var model:Model= Model();
-                    model.id=json_objectdetail.getString("id")
-                    model.name=json_objectdetail.getString("name")
-                    model.email=json_objectdetail.getString("email")
-                    arrayList_details.add(model)
-                }
-
-                requireActivity().runOnUiThread {
-                    //stuff that updates ui
-                    val obj_adapter : CustomAdapter
-                    val applicationContext = requireActivity().application
-                    obj_adapter = CustomAdapter(applicationContext,arrayList_details)
-                    listView_details.adapter=obj_adapter
-                }
-                progress.visibility = View.GONE
-            }
-        })
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -82,25 +41,82 @@ class ThirdFragment : Fragment() {
         // recebe o valor cepDigitado do fragmento anterior via parameter
         var cepDigitado = arguments?.getString("cepDigitado")
         // escreve o CEP recebido no fragmento atual
-        binding.textViewCepDigitado.text = cepDigitado
+        //binding.textViewCepDigitado.text = cepDigitado
         // também seta o valor do CEP na variável da MainActivity, se necessário
         (activity as MainActivity).cep = cepDigitado.toString()
-
+        // remove o - do cep
+        cepDigitado = cepDigitado.toString().replace("-", "")
         // monta a url por CEP
         var urlApi = (activity as MainActivity).urlApiBase.toString().plus("consulta_por_cep?cep=").plus(cepDigitado)
-        binding.urlApiCep.text = urlApi
 
+        // seta as variáveis da barra de progresse e da listagem das UBSs na tela
         progress = binding.progressBar
-
-        val View: View = inflater.inflate(R.layout.activity_list_item, container, false)
-
+        // seta a barra como visivel
         progress.visibility = View.VISIBLE
-        listView_details = binding.listView as ListView
-        run("http://10.0.0.7:8080/jsondata/index.html")
+        listView_details = binding.listView
 
-        return inflater.inflate(R.layout.activity_list_item, container, false);
+        // acessa a Api para preencher os dados na tela
+        //urlApi = "https://raw.githubusercontent.com/royopa/sample.net/master/index.html"
+        run(urlApi, binding)
 
         return binding.root
+    }
+
+    fun run(url: String, binding: FragmentThirdBinding) {
+        progress = binding.progressBar
+        progress.visibility = View.VISIBLE
+        val request = Request.Builder()
+            .url(url)
+            .build()
+
+        client.newCall(request).enqueue(object : Callback {
+            override fun onFailure(call: Call, e: IOException) {
+                // remove a barra de processamento
+                progress.visibility = View.GONE
+                // exibe mensagem de erro
+                //binding.textView2.text = "Erro na consulta à API, tente novamente mais tarde."
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                var str_response = response.body()!!.string()
+                //creating json object
+                val json_contact:JSONObject = JSONObject(str_response)
+                //creating json array
+                var jsonarray_info:JSONArray= json_contact.getJSONArray("resultado")
+                var i:Int = 0
+                var size:Int = jsonarray_info.length()
+                arrayList_details= ArrayList();
+                for (i in 0.. size-1) {
+                    var json_objectdetail:JSONObject=jsonarray_info.getJSONObject(i)
+                    var model:ModelUbs= ModelUbs();
+
+                    model.BAIRRO = json_objectdetail.getString("BAIRRO")
+                    model.CEP = json_objectdetail.getString("CEP")
+                    model.CO_CNES = json_objectdetail.getInt("CO_CNES")
+                    model.DISTANCIA = json_objectdetail.getDouble("DISTANCIA")
+                    model.LATITUDE = json_objectdetail.getDouble("LATITUDE")
+                    model.LOGRADOURO = json_objectdetail.getString("LOGRADOURO")
+                    model.LONGITUDE = json_objectdetail.getDouble("LONGITUDE")
+                    model.MUNICIPIO = json_objectdetail.getString("MUNICIPIO")
+                    model.NOME = json_objectdetail.getString("NOME")
+                    model.NUMERO = json_objectdetail.getString("NUMERO")
+                    model.UF = json_objectdetail.getString("UF")
+
+                    arrayList_details.add(model)
+                }
+
+                requireActivity().runOnUiThread {
+                    //stuff that updates ui
+                    val obj_adapter : CustomAdapter
+                    val applicationContext = requireActivity().application
+                    obj_adapter = CustomAdapter(applicationContext,arrayList_details)
+                    listView_details = binding.listView
+                    listView_details.adapter=obj_adapter
+                }
+
+                progress.visibility = View.GONE
+            }
+        })
     }
 
     override fun onDestroyView() {

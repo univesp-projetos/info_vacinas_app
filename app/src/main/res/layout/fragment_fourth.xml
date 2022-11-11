@@ -8,74 +8,70 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="348dp"
-        android:layout_height="107dp"
-        android:layout_marginTop="37dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="38dp"
         android:src="@drawable/icone_vacina_2"
+        app:layout_constraintBottom_toTopOf="@+id/latTextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_first2" />
+        app:layout_constraintTop_toBottomOf="@+id/progressBar" />
 
     <TextView
         android:id="@+id/textview_first2"
         android:layout_width="175dp"
-        android:layout_height="29dp"
+        android:layout_height="0dp"
         android:layout_marginTop="85dp"
+        android:layout_marginBottom="323dp"
         android:text="Info Vacinas App"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toTopOf="@+id/urlApiLocation"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/latTextView"
-        android:layout_width="363dp"
-        android:layout_height="29dp"
-        android:layout_marginTop="38dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="37dp"
         android:text="Latitude"
+        app:layout_constraintBottom_toTopOf="@+id/lonTextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/lonTextView"
-        android:layout_width="363dp"
-        android:layout_height="29dp"
-        android:layout_marginTop="37dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="46dp"
         android:text="Longitude"
+        app:layout_constraintBottom_toTopOf="@+id/urlApiLocation"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/latTextView"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/urlApiLocation"
-        android:layout_width="365dp"
-        android:layout_height="133dp"
-        android:layout_marginTop="112dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="161dp"
         android:text="urlApiLocation"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/latTextView"
+        app:layout_constraintTop_toBottomOf="@+id/textview_first2"
         tools:ignore="MissingConstraints" />
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="24dp"
-        android:visibility="visible" />
-
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="275dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

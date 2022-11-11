@@ -8,9 +8,9 @@ import android.widget.BaseAdapter
 import android.widget.LinearLayout
 import android.widget.TextView
 
-class CustomAdapter(context: Context,arrayListDetails:ArrayList<Model>) : BaseAdapter() {
+class CustomAdapter(context: Context,arrayListDetails:ArrayList<ModelUbs>) : BaseAdapter() {
     private val layoutInflater: LayoutInflater
-    private val arrayListDetails:ArrayList<Model>
+    private val arrayListDetails:ArrayList<ModelUbs>
 
     init {
         this.layoutInflater = LayoutInflater.from(context)
@@ -41,9 +41,12 @@ class CustomAdapter(context: Context,arrayListDetails:ArrayList<Model>) : BaseAd
             listRowHolder = view.tag as ListRowHolder
         }
 
-        listRowHolder.tvName.text = arrayListDetails.get(position).name
-        listRowHolder.tvEmail.text = arrayListDetails.get(position).email
-        listRowHolder.tvId.text = arrayListDetails.get(position).id
+        listRowHolder.tvName.text = arrayListDetails.get(position).NOME
+        listRowHolder.tvEmail.text = arrayListDetails.get(position).LOGRADOURO
+        listRowHolder.tvId.text = arrayListDetails.get(position).CO_CNES.toString()
+
+
+
         return view
     }
 }
