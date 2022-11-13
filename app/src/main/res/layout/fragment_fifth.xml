@@ -12,45 +12,54 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Quem Somos"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/paragrafo1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="12dp"
         android:text="Aplicativo elaborado para atendimento a disciplinas dos cursos do Eixo Computação (Bacharelado em: Ciência de Dados, Engenharia da Computação e Tecnologia da Informação) da Univesp."
         android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+        android:lineSpacingExtra="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titulo_quem_somos" />
 
     <TextView
+        android:id="@+id/integrantes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="188dp"
-        android:text="Fazem parte deste projeto os alunos:\nAlex Ferreira de Araújo, RA 2002593\nAndré Arantes da Silva, RA 2004640\nJean Marcelo Capello, RA 2014899\nLuiz Antonio de Almeida Junior, RA 2014989\nRodrigo Prado de Jesus, RA 1903703\nSuzana Yukari Tomida, RA 2005882\nValdiney Leopoldo Batine Hernandes, RA 2006352\nWalmir Castillo Furtado, RA 2001913"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="12dp"
+        android:text="Fazem parte deste projeto os alunos:\n\n Alex Ferreira de Araújo, RA 2002593\nAndré Arantes da Silva, RA 2004640\nJean Marcelo Capello, RA 2014899\nLuiz Antonio de Almeida Junior, RA 2014989\nRodrigo Prado de Jesus, RA 1903703\nSuzana Yukari Tomida, RA 2005882\nValdiney Leopoldo Batine Hernandes, RA 2006352\nWalmir Castillo Furtado, RA 2001913"
         android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+        android:lineSpacingExtra="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titulo_quem_somos" />
+        app:layout_constraintTop_toBottomOf="@id/objetivo" />
 
     <TextView
+        android:id="@+id/objetivo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="30dp"
         android:text="Possui o objetivo de implementar uma atualização da aplicação web infoVacinas 2.0 para um aplicativo móvel no sistema Android, bem como a consulta de API para consulta de locais de vacinação próximos a localização do usuário."
         android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+        android:lineSpacingExtra="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titulo_quem_somos" />
+        app:layout_constraintTop_toBottomOf="@id/paragrafo1" />
 
 
     <!--</FrameLayout>-->
