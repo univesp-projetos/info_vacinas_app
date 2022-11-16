@@ -24,4 +24,8 @@
         android:icon="@drawable/ic_question_mark"
         app:showAsAction="always" />
 
+    <item
+        android:id="@+id/action_settings"
+        />
+
 </menu>
