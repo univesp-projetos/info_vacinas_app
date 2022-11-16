@@ -1,7 +1,8 @@
 package com.herokuapp.infovacinas
 
-import android.R
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,7 @@ import okhttp3.*
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.IOException
+
 
 /**
  * A simple [Fragment] subclass as the third destination in the navigation.
@@ -49,7 +51,7 @@ class ThirdFragment : Fragment() {
         // monta a url por CEP
         var urlApi = (activity as MainActivity).urlApiBase.toString().plus("consulta_por_cep?cep=").plus(cepDigitado)
 
-        // seta as variáveis da barra de progresse e da listagem das UBSs na tela
+        // seta as variáveis da barra de progresso e da listagem das UBSs na tela
         progress = binding.progressBar
         // seta a barra como visivel
         progress.visibility = View.VISIBLE
@@ -105,16 +107,27 @@ class ThirdFragment : Fragment() {
                     arrayList_details.add(model)
                 }
 
+                /*
+                Handler(Looper.getMainLooper()).post(Runnable {
+                    //stuff that updates ui
+                    val obj_adapter : CustomAdapter
+                    val applicationContext = requireActivity().application
+                    obj_adapter = CustomAdapter(applicationContext,arrayList_details)
+                    listView_details = binding.listView
+                    listView_details.adapter = obj_adapter
+                    progress.visibility = View.GONE
+                })
+                */
+
                 requireActivity().runOnUiThread {
                     //stuff that updates ui
                     val obj_adapter : CustomAdapter
                     val applicationContext = requireActivity().application
                     obj_adapter = CustomAdapter(applicationContext,arrayList_details)
                     listView_details = binding.listView
-                    listView_details.adapter=obj_adapter
+                    listView_details.adapter = obj_adapter
+                    progress.visibility = View.GONE
                 }
-
-                progress.visibility = View.GONE
             }
         })
     }

@@ -41,26 +41,27 @@ class CustomAdapter(context: Context,arrayListDetails:ArrayList<ModelUbs>) : Bas
             listRowHolder = view.tag as ListRowHolder
         }
 
-        listRowHolder.tvName.text = arrayListDetails.get(position).NOME
-        listRowHolder.tvEmail.text = arrayListDetails.get(position).LOGRADOURO
-        listRowHolder.tvId.text = arrayListDetails.get(position).CO_CNES.toString()
-
-
+        listRowHolder.tvNome.text = arrayListDetails.get(position).NOME.toString()
+        listRowHolder.tvEndereco.text = arrayListDetails.get(position).LOGRADOURO.toString().plus(", ").plus(arrayListDetails.get(position).NUMERO.toString())
+        listRowHolder.tvBairro.text = arrayListDetails.get(position).BAIRRO.toString()
+        listRowHolder.tvMunicipio.text = arrayListDetails.get(position).MUNICIPIO.toString()
 
         return view
     }
 }
 
     private class ListRowHolder(row: View?) {
-        public val tvName: TextView
-        public val tvEmail: TextView
-        public val tvId: TextView
+        public val tvNome: TextView
+        public val tvEndereco: TextView
+        public val tvBairro: TextView
+        public val tvMunicipio: TextView
         public val linearLayout: LinearLayout
 
     init {
-        this.tvId = row?.findViewById<TextView>(R.id.tvId) as TextView
-        this.tvName = row?.findViewById<TextView>(R.id.tvName) as TextView
-        this.tvEmail = row?.findViewById<TextView>(R.id.tvEmail) as TextView
+        this.tvNome = row?.findViewById<TextView>(R.id.tvNome) as TextView
+        this.tvEndereco = row?.findViewById<TextView>(R.id.tvEndereco) as TextView
+        this.tvBairro = row?.findViewById<TextView>(R.id.tvBairro) as TextView
+        this.tvMunicipio = row?.findViewById<TextView>(R.id.tvMunicipio) as TextView
         this.linearLayout = row?.findViewById<LinearLayout>(R.id.linearLayout) as LinearLayout
     }
 }

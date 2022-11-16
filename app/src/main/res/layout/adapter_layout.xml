@@ -9,21 +9,28 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tvId"
+        android:id="@+id/tvNome"
         android:layout_margin="5dp"
         android:textSize="16dp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tvName"
-        android:textSize="16dp"
+        android:id="@+id/tvEndereco"
+        android:textSize="14dp"
         android:layout_margin="5dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tvEmail"
+        android:id="@+id/tvBairro"
         android:layout_margin="5dp"
-        android:textSize="16dp"/>
+        android:textSize="14dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvMunicipio"
+        android:layout_margin="5dp"
+        android:textSize="14dp"/>
 
 </LinearLayout>
