@@ -2,9 +2,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.herokuapp.infovacinas.MainActivity">
+
+
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/menu_consulta_localizacao"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="Consulta UBS pela Localização"
+
         app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_consulta_cep"
+        android:orderInCategory="200"
+        android:title="Consulta UBS por CEP"
+
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_quem_somos"
+        android:orderInCategory="200"
+        android:title="Quem Somos"
+        android:icon="@drawable/ic_question_mark"
+        app:showAsAction="always" />
+
 </menu>
